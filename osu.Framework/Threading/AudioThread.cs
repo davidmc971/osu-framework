@@ -115,7 +115,7 @@ namespace osu.Framework.Threading
             Trace.Assert(deviceId != -1); // The real device ID should always be used, as the -1 device has special cases which are hard to work with.
 
             // Try to initialise the device, or request a re-initialise.
-            if (Bass.Init(deviceId, Flags: (DeviceInitFlags)128)) // 128 == BASS_DEVICE_REINIT
+            if (Bass.Init(deviceId, Frequency: 48000, Flags: (DeviceInitFlags)128)) // 128 == BASS_DEVICE_REINIT
             {
                 initialised_devices.Add(deviceId);
                 return true;

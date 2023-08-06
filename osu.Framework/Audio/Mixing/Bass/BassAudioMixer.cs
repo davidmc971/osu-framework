@@ -277,6 +277,8 @@ namespace osu.Framework.Audio.Mixing.Bass
             if (!ManagedBass.Bass.GetDeviceInfo(ManagedBass.Bass.CurrentDevice, out var deviceInfo) || !deviceInfo.IsInitialized)
                 return;
 
+            ManagedBass.Bass.GetInfo(out var bassInfo);
+
             Handle = BassMix.CreateMixerStream(frequency, 2, BassFlags.MixerNonStop);
             if (Handle == 0)
                 return;
